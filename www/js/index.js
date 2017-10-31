@@ -1,0 +1,26 @@
+var map = L.map('map').fitWorld();
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'MANUAL39 Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Did it update?',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+}).addTo(map);
+
+map.locate({setView: true, maxZoom: 16});
+
+function onLocationFound(e) {
+    var radius = e.accuracy / 2;
+
+    L.marker(e.latlng).addTo(map)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(map);
+}
+
+function onLocationError(e) {
+    alert(e.message);
+}
+
+map.on('locationerror', onLocationError);
+map.on('locationfound', onLocationFound);
