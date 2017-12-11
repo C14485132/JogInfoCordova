@@ -44,6 +44,7 @@ gradle-app.setting
 
 # IntelliJ
 /out/
+.idea/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -62,3 +63,5 @@ fabric.properties
 /platforms
 /plugins
 /www/downloads
+
+node_modules/
