@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Jog Info</title>
+    </head>
+    <body>
+        <div id="header-container" class="navigation">
+            <img id="header-image" src="img/joginfo.svg"/>
+        </div>
+        <div id="body-container">
+            <div id="jog-table">
+                <div class="jog-row-container">
+                    <div id="jog-time-text">Time:</div>
+                    <div id="jog-time-value">00:00:00</div>
+                </div>
+                <div class="jog-row-container">
+                    <div id="jog-distance-text">Distance:</div>
+                    <div id="jog-distance-value">0m</div>
+                </div>
+            </div>
+            <a class="button" onclick="stopClick(false)">Cancel</a>
+            <a class="button" onclick="stopClick(true)">Save</a>
+        </div>
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/newjog.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

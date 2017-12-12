@@ -10,7 +10,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 map.locate({setView: true, maxZoom: 16});
 
 function onLocationFound(e) {
-    var radius = e.accuracy / 2;
+    let radius = e.accuracy / 2;
 
     L.marker(e.latlng).addTo(map)
         .bindPopup("You are within " + radius + " meters from this point").openPopup();
@@ -25,4 +25,13 @@ function onLocationError(e) {
 map.on('locationerror', onLocationError);
 map.on('locationfound', onLocationFound);
 
-fetch()
+const url = "http://138.68.164.214/runs/";
+
+fetch(url)
+.then((resp) => {
+    console.log("resp");
+    return resp.json();
+})
+.then((resp) => {
+    console.log(resp)
+});
